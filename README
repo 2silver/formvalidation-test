@@ -1,0 +1,13 @@
+## Installation
+
+```
+yarn
+```
+
+Copy "@form-validation" to the following folder `src/js/vendors`
+
+## Start
+
+```
+yarn start
+```

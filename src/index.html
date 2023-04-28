@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Declarative Test</title>
+
+    <link
+      rel="stylesheet"
+      href="/js/vendors/@form-validation/umd/styles/index.min.css"
+    />
+    <style type="text/css">
+      .fv-plugins-icon {
+        position: relative;
+        display: block;
+        width: 16px;
+        height: 16px;
+        border: 1px solid purple;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="validateForm" action="#" method="POST">
+      <div class="field">
+        <label for="email">E-Mail:</label>
+        <input
+          id="email"
+          type="email"
+          placeholder="E-Mail Address"
+          required
+          name="email"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+          data-fv-regexp___message="Should be a valid email"
+          data-fv-not-empty="true"
+          data-fv-not-empty___message="required"
+          data-fv-email-address___message="not a valid e-mail address"
+        />
+      </div>
+      <div>
+        <label for="email-confirm">E-Mail confirm:</label>
+        <input
+          type="text"
+          id="email-confirm"
+          name="email-confirm"
+          required
+          data-fv-not-empty="true"
+          data-fv-not-empty___message="Should be not empty"
+          data-fv-identical="true"
+          data-fv-identical___compare="email"
+          data-fv-identical___message="Should be identical with 'E-Mail'"
+        />
+        <div class="form-help help"></div>
+      </div>
+      <div>
+        <label>Checkbox (at least one should be selected):</label>
+        <div>
+          <input
+            type="checkbox"
+            id="checkbox1"
+            name="checkboxes[]"
+            data-fv-not-empty="true"
+            data-fv-not-empty___message="At least one Checkobx is required"
+          />
+          <label for="checkbox1">Checkbox 1</label>
+        </div>
+        <div>
+          <input type="checkbox" id="checkbox2" name="checkboxes[]" />
+          <label for="checkbox2">Checkbox 2</label>
+        </div>
+        <div>
+          <input type="checkbox" id="checkbox3" name="checkboxes[]" />
+          <label for="checkbox3">Checkbox 3</label>
+        </div>
+        <div>
+          <input type="checkbox" id="checkbox4" name="checkboxes[]" />
+          <label for="checkbox4">Checkbox 4</label>
+        </div>
+      </div>
+      <div>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+    <div id="success-message" style="display: none">
+      <h2>Thank You</h2>
+      <p>Your form has been successfully submitted.</p>
+    </div>
+
+    <script src="./bundle.js" type="module"></script>
+  </body>
+</html>
